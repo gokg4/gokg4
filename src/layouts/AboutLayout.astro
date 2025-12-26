@@ -1,0 +1,150 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+const { title, description } = Astro.props.frontmatter || Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="page-wrapper animate-fade-in">
+    <div class="prose">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+
+  /* Specific Prose Styles for About Page */
+  .prose :global(h1) {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    /* Gradient moved to .text-gradient class */
+    color: var(--text-heading);
+  }
+  
+  .prose :global(.text-gradient) {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .prose :global(.wave) {
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+    -webkit-text-fill-color: initial; /* Reset text fill for emoji */
+    color: initial;
+  }
+  
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .prose :global(h3) {
+    color: var(--text-heading);
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .prose :global(img) {
+    border-radius: 4px;
+    border: none;
+    margin: 0 0.3rem; /* Adjusted margin */
+    vertical-align: middle; /* Fix vertical alignment with text */
+    display: inline-block;
+  }
+  
+  /* Fix spacing for badge lines specifically */
+  .prose :global(p) {
+    line-height: 2; /* Increased line height to accommodate badges */
+    margin-bottom: 1.5rem;
+  }
+
+  .prose :global(ul) {
+    list-style: none;
+    padding: 0;
+  }
+
+  .prose :global(li) {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose :global(li::before) {
+    content: "•";
+    color: var(--accent-primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  
+  .prose :global(a) {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+    text-underline-offset: 4px;
+    color: var(--text-main);
+  }
+  
+  .prose :global(a:hover) {
+    color: var(--accent-primary);
+  }
+
+  /* Skills Grid Styles */
+  .prose :global(.skills-grid) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .prose :global(.skill-category) {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  
+  .prose :global(.skill-category:hover) {
+    border-color: rgba(34, 211, 238, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .prose :global(.skill-title) {
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .prose :global(.badges) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .prose :global(.badges img) {
+    margin: 0 !important; /* Override default img margin */
+    height: 28px; /* Consistent height */
+  }
+</style>

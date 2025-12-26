@@ -1,0 +1,123 @@
+---
+---
+<header class="glass">
+  <nav>
+    <div class="logo">
+      <a href="/">The <span class="highlight">Ship Log</span></a>
+    </div>
+    <div class="links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="https://github.com/gokg4" target="_blank" class="nav-link external">GitHub ↗</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+  }
+
+  nav {
+    max-width: 900px; /* Slightly wider */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    color: var(--text-heading);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    letter-spacing: -0.05em;
+  }
+  
+  .logo .dot {
+    color: var(--accent-primary);
+  }
+  
+  .logo .highlight {
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.2rem;
+  }
+
+  .nav-link:hover {
+    color: var(--text-heading);
+  }
+  
+  /* Animated underline */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient-main);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .external {
+    font-size: 0.85rem;
+    background: rgba(34, 211, 238, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    color: var(--accent-primary) !important;
+  }
+  
+  .external::after {
+    display: none;
+  }
+  
+  .external:hover {
+    background: rgba(34, 211, 238, 0.2);
+    transform: translateY(-1px);
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .links {
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .logo a {
+      white-space: nowrap;
+    }
+    
+    .external {
+       white-space: nowrap;
+    }
+  }
+</style>

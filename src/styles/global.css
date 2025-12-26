@@ -1,0 +1,169 @@
+:root {
+  /* Default to Dark Mode */
+  --bg-primary: #0B0E14;
+  /* Void Slate */
+  --bg-secondary: #151B28;
+  /* Midnight */
+  --bg-code: #000000;
+  /* Pitch black */
+
+  --text-main: #E2E8F0;
+  /* Mist */
+  --text-muted: #94A3B8;
+  /* Ash */
+  --text-heading: #F8FAFC;
+  /* Starlight */
+
+  --border-subtle: #2D3748;
+  /* Iron */
+
+  /* Brand Colors */
+  --accent-primary: #22D3EE;
+  /* Electric Cyan */
+  --accent-secondary: #C084FC;
+  /* Syntax Purple */
+  --accent-glow: rgba(34, 211, 238, 0.15);
+  --code-selection: #1e293b;
+
+  /* Gradients */
+  --gradient-main: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  --gradient-bg: radial-gradient(circle at top center, #1e293b 0%, #0B0E14 60%);
+}
+
+/* Light Mode Override */
+.light {
+  --bg-primary: #FFFFFF;
+  /* Paper */
+  --bg-secondary: #F1F5F9;
+  /* Vapor */
+  --bg-code: #1E293B;
+
+  --text-main: #0F172A;
+  /* Ink */
+  --text-muted: #64748B;
+  --text-heading: #0F172A;
+
+  --border-subtle: #E2E8F0;
+
+  --accent-primary: #0891B2;
+  --accent-secondary: #7C3AED;
+
+  --gradient-bg: radial-gradient(circle at top center, #F8FAFC 0%, #FFFFFF 60%);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-primary);
+  background-image: var(--gradient-bg);
+  background-attachment: fixed;
+  /* Parallax-like feel */
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  /* Increased for readability */
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-heading);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  /* More geometric/modern */
+  letter-spacing: -0.03em;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: none;
+  filter: brightness(1.2);
+}
+
+/* Utilities */
+.glass {
+  background: rgba(21, 27, 40, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.text-gradient {
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Tech Blog Specific: Code Blocks */
+pre {
+  background-color: var(--bg-code);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  background-color: rgba(148, 163, 184, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  color: var(--accent-primary);
+  /* Pop the inline code */
+}
+
+pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-subtle);
+}
+
+::selection {
+  background: var(--accent-primary);
+  color: #000;
+}
