@@ -48,7 +48,9 @@ I write about my journey from Agency Owner to Cloud Engineer, and now to SaaS Fo
 
 ### ⚡ Stats
 
-![Github Stats](https://github-readme-stats.vercel.app/api?username=gokg4&show_icons=true&theme=gotham&hide_border=true)
+![GitHub User's stars](https://img.shields.io/github/stars/gokg4)
+![GitHub followers](https://img.shields.io/github/followers/gokg4)
+
 
 ---
 
