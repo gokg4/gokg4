@@ -56,6 +56,6 @@ I write about my journey from Agency Owner to Cloud Engineer, and now to SaaS Fo
 
 ### 📫 Connect with me
 
-* [🐦 Twitter/X](https://twitter.com/gokg4)
+* [👽 Reddit](https://www.reddit.com/user/gokg4/)
 * [💼 LinkedIn](https://linkedin.com/in/gokulg4)
 * [🌐 My Blog](https://gokg4.in)
